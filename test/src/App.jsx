@@ -3,13 +3,15 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { deleteUserById, fetchAllUsers } from './redux/slices/userSlices'
 import Table from 'react-bootstrap/Table';
-
+import axios from 'axios';
+import User from './components/User'
 const App = () => {
   const count = useSelector((state) => state.counter.value)
   const dispatch = useDispatch()
 
   const { isLoading, listUsers, isError } = useSelector((state) => state.user)
   
+
   const handleDelteUser = (user) => {
     dispatch(deleteUserById(user.id))
   }
@@ -17,6 +19,8 @@ const App = () => {
   useEffect(() => {
     dispatch(fetchAllUsers())
   },[])
+
+ 
 
     if (isError === false && isLoading === true) {
     return (
@@ -91,6 +95,8 @@ const App = () => {
       </>
     )
   }
+
+
 }
 
 export default App

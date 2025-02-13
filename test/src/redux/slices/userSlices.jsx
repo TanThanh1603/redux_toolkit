@@ -4,7 +4,7 @@ import axios from 'axios'
 const initialState = {
   listUsers: [],
   isLoading: false,
-  isError : false
+  isError: false
 }
 
 export const fetchAllUsers = createAsyncThunk(
@@ -40,7 +40,7 @@ export const deleteUserById = createAsyncThunk(
 export const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {
+  reducers: { 
   },
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
